@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://gitlab.com/mediatek/aiot/rity" name="mediatek"/>
+  <remote alias="repo" fetch="https://github.com/ADLINK" name="adlink"/>
+  <remote alias="repo" fetch="https://github.com/kraj" name="kraj"/>
+  <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
+  <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+  <default sync-j="4" sync-s="true"/>
+
+  <!--
+    When doing a monthly or quarterly release, the hashes below must be copied from
+    "common-torizon/mediatek/integration.xml", except for layer meta-toradex-torizon which in
+    the integration manifest is referenced by branch but here should be referenced by the
+    corresponding hash.
+  -->
+  <project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="310eec2cb646d7d1a3ca99bad7e37495bb418a0d" upstream="scarthgap"/>
+  <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="cff3be6f664f8f07a40727ff63eeeb24d6f5e00b" upstream="2.8"/>
+  <project name="meta-yocto" path="layers/meta-yocto" remote="yp" revision="961c2399d06fbdb04ee27d06079e186d2c4a14ad" upstream="scarthgap"/>
+  <project name="meta-arm" path="layers/meta-arm" remote="yp" revision="045eb74bd9abe7d9ccf365a2417e440ce83bcbb0" upstream="scarthgap"/>
+  <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe" revision="bec755063a8b5da65df626f5749496aadaa4f4bb" upstream="scarthgap"/>
+  <project name="meta-clang" path="layers/meta-clang" remote="kraj" revision="cc29beb210ab94eacc53bbd67e287e4e33ede342" upstream="scarthgap"/>
+  <project name="meta-virtualization" path="layers/meta-virtualization" remote="yp" revision="f980aefbc8b3eeafb8d144e7fdac3c3b701a4fea" upstream="scarthgap"/>
+
+  <project name="meta-mediatek-bsp" path="layers/meta-mediatek-bsp" remote="mediatek" revision="b7b65915a95b743d4e37de28d10ece04135fa6af" upstream="rity-scarthgap-v25.0"/>
+  <project name="meta-adlink-mtk" path="layers/meta-adlink-mtk" remote="adlink" revision="dd2b29a7c5536507a243141017272d64c47e4cdc" upstream="rity-scarthgap-v25.0"/>
+
+  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="14d693d72551d8759c818b00d32bcdf9fc4c6063" upstream="scarthgap"/>
+  <project name="meta-toradex-torizon" path="layers/meta-toradex-torizon" remote="torizon" revision="428ec62d47333c10f5b2aa341a647be71ed70ee0">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>
