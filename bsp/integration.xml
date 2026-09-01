@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/Freescale" name="githf"/>
+  <remote alias="repo" fetch="https://git.toradex.com" name="tdx"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yocto"/>
+
+  <project name="meta-arm" path="layers/meta-arm" remote="yocto" revision="master"/>
+  <project name="meta-freescale.git" path="layers/meta-freescale" remote="githf" revision="master"/>
+  <project name="meta-ti" path="layers/meta-ti" remote="yocto" revision="master"/>
+</manifest>
