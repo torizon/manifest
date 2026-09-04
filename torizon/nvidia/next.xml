@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/OE4T" name="tegra"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
+  <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
+
+  <remote alias="repo" fetch="https://github.com/uptane"  name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+  <default sync-j="4" sync-s="true"/>
+
+  <project name="meta-openembedded" remote="oe" path="layers/meta-openembedded" revision="scarthgap" upstream="scarthgap"/>
+  <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="scarthgap" upstream="scarthgap"/>
+  <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="2.8"/>
+  <project name="meta-yocto" remote="yp" path="layers/meta-yocto" revision="scarthgap" upstream="scarthgap"/>
+
+  <project name="meta-virtualization" remote="yp" path="layers/meta-virtualization" revision="scarthgap" upstream="scarthgap"/>
+
+  <project name="meta-tegra" remote="tegra" path="layers/meta-tegra" revision="scarthgap" upstream="scarthgap"/>
+
+  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="scarthgap"/>
+  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master"/>
+  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>

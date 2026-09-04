@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/nxp-imx" name="nxp"/>
+  <remote alias="repo" fetch="https://github.com/nxp-imx-support" name="nxp-support"/>
+
+  <remote alias="repo" name="community"   fetch="https://github.com/Freescale"/>
+  <remote alias="repo" name="yp"          fetch="https://git.yoctoproject.org"/>
+  <remote alias="repo" name="oe"          fetch="https://github.com/openembedded"/>
+  <remote alias="repo" name="kraj"        fetch="https://github.com/kraj"/>
+  <remote alias="repo" name="ossystems"   fetch="https://github.com/OSSystems"/>
+  <remote alias="repo" name="qt"          fetch="https://github.com/YoeDistro"/>
+  <remote alias="repo" name="timesys"     fetch="https://github.com/TimesysGit"/>
+
+
+  <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+
+  <default sync-j="4" sync-s="true" revision="scarthgap" upstream="scarthgap"/>
+
+  <project name="poky" remote="yp" path="sources/poky"/>
+  <project name="meta-openembedded" remote="oe" path="sources/meta-openembedded"/>
+  <project name="meta-clang" remote="kraj" path="sources/meta-clang"/>
+
+  <project name="fsl-community-bsp-base" remote="community" path="sources/base"/>
+
+  <project name="meta-freescale" remote="community" path="sources/meta-freescale"/>
+  <project name="meta-freescale-3rdparty" remote="community" path="sources/meta-freescale-3rdparty"/>
+  <project name="meta-freescale-distro" remote="community" path="sources/meta-freescale-distro"/>
+
+
+  <project name="meta-arm" remote="yp" path="sources/meta-arm"/>
+  <project name="meta-qt6" remote="qt" path="sources/meta-qt6" revision="6.8" upstream="6.8"/>
+  <project name="meta-browser" remote="ossystems" path="sources/meta-browser" />
+  <project name="meta-security" remote="yp" path="sources/meta-security"/>
+  <project name="meta-timesys" remote="timesys" path="sources/meta-timesys"/>
+  <project name="meta-virtualization" remote="yp" path="sources/meta-virtualization"/>
+
+  <project name="meta-imx" path="sources/meta-imx" remote="nxp" revision="scarthgap-6.6.52-2.2.0">
+    <linkfile src="tools/imx-setup-release.sh" dest="imx-setup-release.sh"/>
+  </project>
+  <project name="meta-imx-frdm" path="sources/meta-imx-frdm" remote="nxp-support" revision="lf-6.6.36-2.1.0">
+    <linkfile dest="imx-frdm-setup.sh" src="tools/imx-frdm-setup.sh"/>
+  </project>
+
+  <project name="meta-nxp-connectivity" remote="nxp" path="sources/meta-nxp-connectivity" revision="refs/tags/rel_imx_6.6.52_2.2.0" upstream="imx_matter_2024_q3-post"/>
+  <project name="meta-nxp-demo-experience" remote="nxp-support" path="sources/meta-nxp-demo-experience" revision="refs/tags/rel_imx_6.6.52_2.2.0" upstream="scarthgap-6.6.52-2.2.0"/>
+
+  <project name="meta-updater" path="sources/meta-updater" remote="uptane"/>
+  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master"/>
+  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>

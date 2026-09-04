@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/synaptics-astra" name="synaptics"/>
+  <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
+  <remote alias="repo" fetch="https://code.qt.io/yocto" name="qt"/>
+  <remote alias="repo" fetch="https://github.com/OSSystems" name="ossystems"/>
+  <remote alias="repo" fetch="https://github.com/kraj" name="kraj"/>
+  <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
+  <remote alias="repo" fetch="https://github.com/sbabic" name="swupdate"/>
+
+  <default sync-j="4" sync-s="true" revision="scarthgap" upstream="scarthgap"/>
+
+  <project name="meta-synaptics" path="layers/meta-synaptics" remote="synaptics" revision="scarthgap_6.12_v2.1.0"/>
+  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="scarthgap"/>
+
+  <project name="meta-browser" path="layers/meta-browser" remote="ossystems"/>
+  <project name="meta-clang" path="layers/meta-clang" remote="kraj"/>
+  <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe"/>
+  <project name="meta-swupdate" path="layers/meta-swupdate" remote="swupdate"/>
+  <project name="meta-virtualization" path="layers/meta-virtualization" remote="yp" upstream="scarthgap"/>
+  <project name="meta-selinux" path="layers/meta-selinux" remote="yp" upstream="scarthgap"/>
+  <project name="meta-lts-mixins" path="layers/meta-lts-mixins" remote="yp" revision="scarthgap/rust" upstream="scarthgap/rust"/>
+  <project name="meta-qt5" path="layers/meta-qt5" remote="qt" revision="upstream/jansa/scarthgap" upstream="upstream/scarthgap" />
+  <project name="poky" path="layers/poky" remote="yp"/>
+
+  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master"/>
+  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>

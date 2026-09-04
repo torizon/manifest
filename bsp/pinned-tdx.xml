@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-  <remote alias="repo" fetch="https://git.toradex.com" name="tdx"/>
-  <project name="meta-toradex-bsp.git" path="layers/meta-toradex-bsp" remote="tdx" revision="70aceb8139c3c354b3611fafe0095576d031feec" upstream="main"/>
-</manifest>

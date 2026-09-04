@@ -1,0 +1,74 @@
+name: manifest-ci
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint-xml:
+    name: lint xml
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
+      - name: validate manifest xml is well-formed
+        run: |
+          set -e
+          status=0
+          while IFS= read -r -d '' f; do
+            echo "checking $f"
+            xmllint --noout "$f" || status=1
+          done < <(find . -name '*.xml' -not -path './.git/*' -print0)
+          exit $status
+
+  repo-init-sync:
+    name: repo init/sync (${{ matrix.vendor }})
+    runs-on: ubuntu-latest
+    needs: lint-xml
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        vendor: [tdx, syn, ti, x86, nvidia, nxp]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install repo tool
+        run: |
+          curl -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo
+          chmod +x /usr/local/bin/repo
+
+      - name: git identity (repo tool requires one)
+        run: |
+          git config --global user.email "ci@torizon.io"
+          git config --global user.name "Torizon CI"
+          git config --global protocol.file.allow always
+          # pre-set color.ui so `repo init` skips its interactive color
+          # prompt (it only asks when color.ui/diff/status are all unset)
+          git config --global color.ui false
+          # some submodules resolve via git:// (port 9418), which many
+          # networks/firewalls block; rewrite to https so sync doesn't hang
+          git config --global url."https://".insteadOf git://
+
+      - name: repo init (${{ matrix.vendor }})
+        run: |
+          mkdir -p /tmp/repo-checkout-${{ matrix.vendor }}
+          cd /tmp/repo-checkout-${{ matrix.vendor }}
+          timeout 5m repo init \
+            -u "file://${{ github.workspace }}" \
+            -b "${{ github.sha }}" \
+            -m "torizon/${{ matrix.vendor }}/next.xml" \
+            --manifest-depth=1 \
+            --depth=1 \
+            --clone-filter=blob:none \
+            -q < /dev/null
+
+      - name: repo sync (${{ matrix.vendor }})
+        run: |
+          cd /tmp/repo-checkout-${{ matrix.vendor }}
+          timeout 15m repo sync --no-tags --optimized-fetch -j4
