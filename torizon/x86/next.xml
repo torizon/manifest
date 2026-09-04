@@ -7,12 +7,16 @@
 
   <default sync-j="4"/>
 
-  <project name="poky" path="layers/poky" remote="yocto" revision="master"/>
   <project name="meta-intel" path="layers/meta-intel" remote="yocto" revision="master"/>
   <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="master"/>
   <project name="meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="master"/>
+  <project name="meta-security" path="layers/meta-security" remote="yocto" revision="master"/>
   <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe" revision="master"/>
-  <project name="meta-toradex-torizon" path="layers/meta-toradex-torizon" remote="torizon" revision="master">
+  <project name="openembedded-core" path="layers/oe-core" remote="oe" revision="master"/>
+  <project name="meta-yocto" path="layers/meta-yocto" remote="yocto" revision="master"/>
+  <project name="bitbake" path="layers/bitbake" remote="oe" revision="master"/>
+  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master"/>
+  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
 </manifest>

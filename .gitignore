@@ -1,0 +1,21 @@
+# act (https://github.com/nektos/act) - local GitHub Actions runner
+#
+# We don't commit .actrc (its runner-image pin is documented in README.md
+# instead, as part of the local CI testing instructions), but these are
+# local-only artifacts act can drop in the repo depending on how it's
+# invoked:
+.actrc
+
+# secrets/vars files some workflows are tested with locally
+# (never commit real credentials)
+.secrets
+.act.secrets
+.env.act
+
+# custom event payloads used for `act -e event.json`
+act-event.json
+
+# local artifact/cache server output, if --artifact-server-path or
+# --cache-server-path is pointed inside the repo instead of $HOME/.cache
+.act-artifacts/
+.act-cache/

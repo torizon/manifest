@@ -14,8 +14,10 @@
   <project name="openembedded-core" path="sources/oe-core" remote="oe" revision="master"/>
   <project name="meta-updater" path="sources/meta-updater" remote="uptane" revision="master"/>
   <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="master"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="master"/>
   <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="master"/>
-  <project name="meta-toradex-torizon" path="sources/meta-toradex-torizon" remote="torizon" revision="master">
+  <project name="meta-torizon" path="sources/meta-torizon" remote="torizon" revision="master"/>
+  <project name="meta-torizon-bsp" path="sources/meta-torizon-bsp" remote="torizon" revision="master">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
 </manifest>

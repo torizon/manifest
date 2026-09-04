@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <include name="base/integration.xml" />
-  <include name="bsp/integration-nxp.xml" />
-  <include name="bsp/integration-ti.xml" />
-  <include name="bsp/integration-tdx.xml" />
+  <include name="bsp/integration.xml" />
 
   <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
   <remote alias="repo" fetch="https://github.com/toradex" name="toradex"/>
@@ -16,6 +14,7 @@
   <project name="meta-cyclonedx" path="layers/meta-cyclonedx" remote="iris" revision="main"/>
   <project name="meta-toradex-distro.git" path="layers/meta-toradex-distro" remote="tdx" revision="master"/>
   <project name="meta-toradex-security" path="layers/meta-toradex-security" remote="toradex" revision="main"/>
+  <project name="meta-toradex-bsp.git" path="layers/meta-toradex-bsp" remote="tdx" revision="main"/>
   <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master"/>
   <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
