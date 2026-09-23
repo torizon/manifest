@@ -38,13 +38,10 @@ Within a vendor folder, the manifest filename says what it locks down:
   releases. All hashes are pinned, so anyone can checkout a release version tag
   and sync the same layers commits used for that specific release.
 
-**On `master` specifically**, only `next.xml` exists per vendor, since on
-`master` we only are for full integration, and we don't do releases.
-
 ## Getting started
 
 ```sh
-repo init -u https://github.com/torizon/manifest.git -b master -m torizon/tdx/release.xml
+repo init -u https://github.com/torizon/manifest.git -b wrynose-8.x.y -m torizon/tdx/release.xml
 repo sync
 ```
 
@@ -56,7 +53,7 @@ targeting (see the table above).
 
 ## CI
 
-`.github/workflows/manifest-ci.yml` runs on every push/PR to `master`:
+`.github/workflows/manifest-ci.yml` runs on every push/PR to `wrynose-8.x.y`:
 
 - **lint xml** - every `*.xml` in the repo must be well-formed.
 - **repo init/sync (\<vendor\>)** - for each vendor folder, a real

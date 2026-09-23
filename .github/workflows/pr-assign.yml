@@ -1,8 +1,8 @@
 name: Auto Self-Assign PR
 
 on:
-  pull_request: # <-- Changed from pull_request_target for testing
-    types: [opened, reopened, synchronized] # <-- Added synchronized to easily re-trigger
+  pull_request_target:
+    types: [opened, reopened, synchronize] # <-- Added synchronized to easily re-trigger
 
 permissions:
   pull-requests: write

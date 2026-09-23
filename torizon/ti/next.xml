@@ -5,18 +5,21 @@
   <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
   <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
 
-  <default sync-j="4"/>
+  <default sync-j="4" sync-s="true"/>
 
-  <project name="bitbake" path="sources/bitbake" remote="oe" revision="master"/>
-  <project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="master"/>
-  <project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="master"/>
-  <project name="meta-yocto" path="sources/meta-yocto" remote="yocto" revision="master"/>
-  <project name="openembedded-core" path="sources/oe-core" remote="oe" revision="master"/>
-  <project name="meta-updater" path="sources/meta-updater" remote="uptane" revision="master"/>
-  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="master"/>
-  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="master"/>
-  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master"/>
-  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master">
+  <project name="bitbake" path="sources/bitbake" remote="oe" revision="2.18" upstream="2.18"/>
+  <project name="openembedded-core" path="sources/oe-core" remote="oe" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-yocto" path="sources/meta-yocto" remote="yocto" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-updater" path="sources/meta-updater" remote="uptane" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-torizon" path="sources/meta-torizon" remote="torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y"/>
+  <project name="meta-torizon-bsp" path="sources/meta-torizon-bsp" remote="torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
 </manifest>

@@ -10,22 +10,24 @@
 
   <default sync-j="4" sync-s="true"/>
 
-  <project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="master" upstream="master"/>
-  <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="master" upstream="master"/>
-  <project name="meta-yocto" path="layers/meta-yocto" remote="yp" revision="master" upstream="master"/>
-  <project name="meta-arm" path="layers/meta-arm" remote="yp" revision="master" upstream="master"/>
-  <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe" revision="master" upstream="master"/>
-  <project name="meta-clang" path="layers/meta-clang" remote="kraj" revision="master" upstream="master"/>
-  <project name="meta-virtualization" path="layers/meta-virtualization" remote="yp" revision="master" upstream="master"/>
+  <project name="openembedded-core" path="layers/openembedded-core" remote="oe" revision="wrynose" upstream="wrynose"/>
+  <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="2.18" upstream="2.18"/>
+  <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe" revision="wrynose" upstream="wrynose"/>
 
-  <!-- meta-mediatek-bsp and meta-adlink-imx have no "master" branch; pinned to latest tested branch on scarthgap for now.
+  <project name="meta-yocto" path="layers/meta-yocto" remote="yp" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-arm" path="layers/meta-arm" remote="yp" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-virtualization" path="layers/meta-virtualization" remote="yp" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-clang" path="layers/meta-clang" remote="kraj" revision="wrynose" upstream="wrynose"/>
+
+  <!-- meta-mediatek-bsp and meta-adlink-imx have no "wrynose" branch; pinned to latest tested branch on scarthgap for now.
        TODO: check periodically for a newer codename branch and bump this to it. -->
   <project name="meta-mediatek-bsp" path="layers/meta-mediatek-bsp" remote="mediatek" revision="critical-fixes/rity-scarthgap-v25.0"/>
   <project name="meta-adlink-mtk" path="layers/meta-adlink-mtk" remote="adlink" revision="rity-scarthgap-v25.0"/>
 
-  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="master" upstream="master"/>
-  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master" upstream="master"/>
-  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master" upstream="master">
+  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y"/>
+  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
 </manifest>

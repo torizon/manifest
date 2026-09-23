@@ -5,15 +5,21 @@
   <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
   <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
 
-  <default sync-j="4"/>
+  <default sync-j="4" sync-s="true"/>
 
-  <project name="poky" path="layers/poky" remote="yocto" revision="master"/>
-  <project name="meta-intel" path="layers/meta-intel" remote="yocto" revision="master"/>
-  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="master"/>
-  <project name="meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="master"/>
-  <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe" revision="master"/>
-  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="master"/>
-  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="master">
+  <project name="meta-intel" remote="yocto" path="layers/meta-intel" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-virtualization" remote="yocto" path="layers/meta-virtualization" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-security" remote="yocto" path="layers/meta-security" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-yocto" remote="yocto" path="layers/meta-yocto" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-openembedded" remote="oe" path="layers/meta-openembedded" revision="wrynose" upstream="wrynose"/>
+  <project name="openembedded-core" remote="oe" path="layers/oe-core" revision="wrynose" upstream="wrynose"/>
+  <project name="bitbake" remote="oe" path="layers/oe-core/bitbake" revision="2.18" upstream="2.18"/>
+
+
+  <project name="meta-updater" remote="uptane" path="layers/meta-updater" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-torizon" remote="torizon" path="layers/meta-torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y"/>
+  <project name="meta-torizon-bsp" remote="torizon" path="layers/meta-torizon-bsp" revision="wrynose-8.x.y" upstream="wrynose-8.x.y">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
 </manifest>

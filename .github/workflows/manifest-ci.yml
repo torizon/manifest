@@ -2,9 +2,9 @@ name: manifest-ci
 
 on:
   push:
-    branches: [master]
+    branches: [wrynose-8.x.y]
   pull_request:
-    branches: [master]
+    branches: [wrynose-8.x.y]
 
 jobs:
   lint-xml:
