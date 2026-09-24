@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/OE4T" name="tegra"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
+  <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
+
+  <remote alias="repo" fetch="https://github.com/uptane"  name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/iris-GmbH" name="iris"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+  <default sync-j="4" sync-s="true"/>
+
+  <project name="meta-openembedded" remote="oe" path="layers/meta-openembedded" revision="47d7dbdd10890bbd429bc0cccbe14435c37e5af1" upstream="wrynose"/>
+  <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="883075157987ca300af59185b903d6d1977234c3" upstream="wrynose"/>
+  <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="84a8d046593840df460c1312365031c817eb8918" upstream="2.18"/>
+  <project name="meta-yocto" remote="yp" path="layers/meta-yocto" revision="ddeeba423ff0565b8f1192f16072b5993d5ea6a0" upstream="wrynose"/>
+
+  <project name="meta-virtualization" remote="yp" path="layers/meta-virtualization" revision="70a5d5a65d7237cfe978961fa4d8765c895cddc8" upstream="wrynose"/>
+
+  <project name="meta-security" remote="yp" path="layers/meta-security" revision="2703974d5e2d61b221dffa302c2e059a522adbf3" upstream="wrynose"/>
+
+  <project name="meta-tegra" remote="tegra" path="layers/meta-tegra" revision="2e37d1673d25fb92440bcf6db8dcf1076e822037" upstream="wrynose"/>
+
+  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="92f4788c30fdcab2d376eb9ae6b191bda7d06d0a" upstream="wrynose"/>
+  <project name="meta-cyclonedx" path="layers/meta-cyclonedx" remote="iris" revision="5b9d37f5d5cbab0c9fb59b46e3ebe4c7ef78887f" upstream="wrynose"/>
+  <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="a29b96fb74f2313ef7baad996f8b41f381e61d6a" upstream="wrynose-8.x.y"/>
+  <project name="meta-torizon-bsp" path="layers/meta-torizon-bsp" remote="torizon" revision="4a7e3cbc189991a02ed7a7b93040241002ed96fb" upstream="wrynose-8.x.y">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>
