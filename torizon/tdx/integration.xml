@@ -12,7 +12,6 @@
   <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="c73c905b2d358518aaec77893d5f4d1f2165470c" upstream="wrynose"/>
   <project name="meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="70a5d5a65d7237cfe978961fa4d8765c895cddc8" upstream="wrynose"/>
   <project name="meta-cyclonedx" path="layers/meta-cyclonedx" remote="iris" revision="0d1b192b1932635f9442ade3e10cde6b6597daa6" upstream="wrynose"/>
-  <project name="meta-toradex-distro.git" path="layers/meta-toradex-distro" remote="tdx" revision="48c84b0c052032b0e4560b01ae9eaea242b0b04e"/>
   <project name="meta-toradex-security" path="layers/meta-toradex-security" remote="toradex" revision="3057dfdeb11094fb751cfc8e846792d8eff2db99" upstream="main"/>
   <project name="meta-toradex-bsp.git" path="layers/meta-toradex-bsp" remote="tdx" revision="a10f9bf90735b194c9458fc4a8a877d2d238b520" upstream="wrynose"/>
   <project name="meta-torizon" path="layers/meta-torizon" remote="torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y"/>
