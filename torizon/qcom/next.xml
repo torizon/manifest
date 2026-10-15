@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/qualcomm-linux" name="qcom"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
+  <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
+  <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/iris-GmbH" name="iris"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+  <default sync-j="4" sync-s="true"/>
+
+  <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="wrynose" upstream="wrynose"/>
+  <project name="bitbake" remote="oe" path="layers/openembedded-core/bitbake" revision="2.18" upstream="2.18"/>
+  <project name="meta-openembedded" remote="oe" path="layers/meta-openembedded" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-yocto" remote="yp" path="layers/meta-yocto" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-virtualization" remote="yp" path="layers/meta-virtualization" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-security" remote="yp" path="layers/meta-security" revision="wrynose" upstream="wrynose"/>
+
+  <!-- meta-qcom requires the lts-linux-firmware-mixin collection. meta-qcom's
+       own CI applies extra patches to it for shikra/qcs615 firmware; those are
+       not needed by the machines enabled here and a repo manifest cannot apply
+       them. -->
+  <project name="meta-lts-mixins" remote="yp" path="layers/meta-lts-mixins" revision="wrynose/linux-firmware" upstream="wrynose/linux-firmware"/>
+  <project name="meta-qcom" remote="qcom" path="layers/meta-qcom" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-qcom-arduino" remote="qcom" path="layers/meta-qcom-arduino" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-updater" remote="uptane" path="layers/meta-updater" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-cyclonedx" remote="iris" path="layers/meta-cyclonedx" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-torizon" remote="torizon" path="layers/meta-torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y"/>
+  <project name="meta-torizon-bsp" remote="torizon" path="layers/meta-torizon-bsp" revision="wrynose-8.x.y" upstream="wrynose-8.x.y">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>

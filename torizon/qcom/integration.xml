@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/qualcomm-linux" name="qcom"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
+  <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
+  <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/iris-GmbH" name="iris"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+  <default sync-j="4" sync-s="true"/>
+
+  <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="883075157987ca300af59185b903d6d1977234c3" upstream="wrynose"/>
+  <project name="bitbake" remote="oe" path="layers/openembedded-core/bitbake" revision="f0df79b6b56f6a69067adf974978d9405077f246" upstream="2.18"/>
+  <project name="meta-openembedded" remote="oe" path="layers/meta-openembedded" revision="47d7dbdd10890bbd429bc0cccbe14435c37e5af1" upstream="wrynose"/>
+  <project name="meta-yocto" remote="yp" path="layers/meta-yocto" revision="ddeeba423ff0565b8f1192f16072b5993d5ea6a0" upstream="wrynose"/>
+
+  <project name="meta-virtualization" remote="yp" path="layers/meta-virtualization" revision="70a5d5a65d7237cfe978961fa4d8765c895cddc8" upstream="wrynose"/>
+  <project name="meta-security" remote="yp" path="layers/meta-security" revision="2703974d5e2d61b221dffa302c2e059a522adbf3" upstream="wrynose"/>
+
+  <!-- meta-qcom requires the lts-linux-firmware-mixin collection. meta-qcom's
+       own CI applies extra patches to it for shikra/qcs615 firmware; those are
+       not needed by the machines enabled here and a repo manifest cannot apply
+       them. -->
+  <project name="meta-lts-mixins" remote="yp" path="layers/meta-lts-mixins" revision="71dfb81bd98f59ca2127d39b100ecbb8ce1e0ba3" upstream="wrynose/linux-firmware"/>
+  <project name="meta-qcom" remote="qcom" path="layers/meta-qcom" revision="b427040c7482e6c963089d76c5d0ab3cf8c2a7bb" upstream="wrynose"/>
+  <project name="meta-qcom-arduino" remote="qcom" path="layers/meta-qcom-arduino" revision="8968bc46d4824422c35d095115b4861e1b3cf6a5" upstream="wrynose"/>
+
+  <project name="meta-updater" remote="uptane" path="layers/meta-updater" revision="92f4788c30fdcab2d376eb9ae6b191bda7d06d0a" upstream="wrynose"/>
+  <project name="meta-cyclonedx" remote="iris" path="layers/meta-cyclonedx" revision="5b9d37f5d5cbab0c9fb59b46e3ebe4c7ef78887f" upstream="wrynose"/>
+  <project name="meta-torizon" remote="torizon" path="layers/meta-torizon" revision="wrynose-8.x.y"/>
+  <project name="meta-torizon-bsp" remote="torizon" path="layers/meta-torizon-bsp" revision="wrynose-8.x.y">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>

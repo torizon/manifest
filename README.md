@@ -20,6 +20,7 @@ Each vendor lives in its own folder under `torizon/`:
 | `torizon/mtk/`     | MediaTek Genio (`meta-mediatek-bsp`), ADLINK SMARC modules (`meta-adlink-mtk`) |
 | `torizon/nxp/`     | NXP i.MX community BSP (`meta-imx`, non-Toradex boards) |
 | `torizon/nvidia/`  | NVIDIA Jetson (Tegra), `meta-tegra`        |
+| `torizon/qcom/`    | Qualcomm Dragonwing (`meta-qcom`), Arduino VENTUNO Q (`meta-qcom-arduino`) |
 | `torizon/syn/`     | Synaptics Astra                            |
 | `torizon/ti/`      | TI community BSP (`meta-ti`, non-Toradex boards) |
 | `torizon/x86/`     | Intel/AMD x86, `meta-intel`                |
