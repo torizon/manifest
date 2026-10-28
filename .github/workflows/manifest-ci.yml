@@ -34,7 +34,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        vendor: [tdx, syn, ti, x86, nvidia, nxp, mtk]
+        vendor: [tdx, syn, ti, x86, nvidia, nxp, mtk, qcom]
         manifest: [next, integration, release]
         exclude:
           # syn and mtk have no wrynose branch yet, so they only
@@ -46,6 +46,10 @@ jobs:
           - vendor: mtk
             manifest: integration
           - vendor: mtk
+            manifest: release
+          # qcom has no release yet, so it only ships next.xml and
+          # integration.xml - no release.xml to sync yet.
+          - vendor: qcom
             manifest: release
     steps:
       - uses: actions/checkout@v4
