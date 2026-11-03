@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote alias="repo" fetch="https://github.com/qualcomm-linux" name="qcom"/>
+  <remote alias="repo" fetch="https://git.yoctoproject.org" name="yp"/>
+  <remote alias="repo" fetch="https://github.com/openembedded" name="oe"/>
+  <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
+  <remote alias="repo" fetch="https://github.com/iris-GmbH" name="iris"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+  <default sync-j="4" sync-s="true"/>
+
+  <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="master" upstream="master"/>
+  <project name="bitbake" remote="oe" path="layers/openembedded-core/bitbake" revision="master" upstream="master"/>
+  <project name="meta-openembedded" remote="oe" path="layers/meta-openembedded" revision="master" upstream="master"/>
+  <project name="meta-yocto" remote="yp" path="layers/meta-yocto" revision="master" upstream="master"/>
+
+  <project name="meta-virtualization" remote="yp" path="layers/meta-virtualization" revision="master" upstream="master"/>
+  <project name="meta-security" remote="yp" path="layers/meta-security" revision="master" upstream="master"/>
+
+  <project name="meta-qcom" remote="qcom" path="layers/meta-qcom" revision="master" upstream="master"/>
+  <project name="meta-qcom-arduino" remote="qcom" path="layers/meta-qcom-arduino" revision="main" upstream="main"/>
+
+  <project name="meta-updater" remote="uptane" path="layers/meta-updater" revision="master" upstream="master"/>
+  <project name="meta-cyclonedx" remote="iris" path="layers/meta-cyclonedx" revision="main" upstream="main"/>
+  <project name="meta-torizon" remote="torizon" path="layers/meta-torizon" revision="master" upstream="master"/>
+  <project name="meta-torizon-bsp" remote="torizon" path="layers/meta-torizon-bsp" revision="master" upstream="master">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>
