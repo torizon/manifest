@@ -26,6 +26,15 @@ jobs:
           done < <(find . -name '*.xml' -not -path './.git/*' -print0)
           exit $status
 
+  test-scripts:
+    name: test scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: run manifest-bump script tests
+        run: python3 -m unittest discover -s scripts/tests -v
+
   repo-init-sync:
     name: repo init/sync (${{ matrix.vendor }} ${{ matrix.manifest }})
     runs-on: ubuntu-latest

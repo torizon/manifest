@@ -62,6 +62,7 @@ targeting (see the table above).
 `.github/workflows/manifest-ci.yml` runs on every push/PR to `wrynose-8.x.y`:
 
 - **lint xml** - every `*.xml` in the repo must be well-formed.
+- **test scripts** - runs `scripts/tests` (see [Manifest bump](#manifest-bump)).
 - **repo init/sync (\<vendor\> \<manifest\>)** - for each vendor folder, a real
   `repo init` + `repo sync` against that vendor's manifests, at the
   exact commit under test. It's shallow and blob-less
@@ -114,3 +115,34 @@ act push -j repo-init-sync
 with any secrets files, custom event payloads, or local artifact/cache
 server output `act` may drop) - keep it as a local file per the snippet
 above.
+
+## Manifest bump
+
+After each image build, Jenkins (`Jenkinsfile.ManifestBump` in
+image-pipeline-scripts) pins the revisions it built into this repo with
+`scripts/image_oe_bumpManifests.py`, and opens a bump MR from
+`bump-torizon-<vendor>-<branch>-<pipeline>`:
+
+```sh
+repo manifest -r -o frozen.xml
+BRANCH=$(scripts/image_oe_bumpManifests.py --productName torizon --pipelineType nightly \
+  get-target-branch-name --manifestBranch wrynose-8.x.y)   # vendor from $BUILD_MANIFEST_FILE
+FILES=$(scripts/image_oe_bumpManifests.py --productName torizon --pipelineType nightly \
+  bump-manifest --originManifestFile torizon/tdx/next.xml \
+  --updatedManifestFile frozen.xml --manifestRootPath ./)
+```
+
+- Builds use `torizon/<vendor>/next.xml`. `nightly` bumps that vendor's
+  `release.xml`, and `extint` bumps its `integration.xml`, where the
+  Torizon layers stay on their branch.
+- `base/pinned.xml` and `bsp/pinned.xml` are bumped only for vendors whose
+  manifest `<include>`s them (today `tdx`), and are shared by its
+  `integration.xml` and `release.xml`.
+- Only `revision`/`upstream` of `<project>`s are edited; the rest of each
+  file is kept as is.
+- A missing `integration.xml`/`release.xml` is skipped, not created.
+- Nothing is bumped unless `MATRIX_BUILD_STATUS` is `SUCCESS`. Set it by
+  hand when running the script locally, and add `--dry-run` to only list
+  the files that would change.
+
+Tests: `python3 -m unittest discover -s scripts/tests -v`.
