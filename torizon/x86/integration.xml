@@ -7,7 +7,7 @@
 
   <default sync-j="4" sync-s="true"/>
 
-  <project name="openembedded-core" path="layers/oe-core" remote="oe" revision="883075157987ca300af59185b903d6d1977234c3" upstream="wrynose"/>
+  <project name="openembedded-core" path="layers/oe-core" remote="oe" revision="bb14ef50f1af8c96282e0533c53535deadda7365" upstream="wrynose"/>
   <project name="bitbake" path="layers/bitbake" remote="oe" revision="f0df79b6b56f6a69067adf974978d9405077f246" upstream="2.18"/>
   <project name="meta-yocto" path="layers/meta-yocto" remote="yocto" revision="ddeeba423ff0565b8f1192f16072b5993d5ea6a0" upstream="wrynose"/>
   <project name="meta-intel" path="layers/meta-intel" remote="yocto" revision="79a9681ce83f6bf36aede3aeb8c1707d29bca329" upstream="wrynose"/>

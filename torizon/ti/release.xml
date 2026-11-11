@@ -11,7 +11,7 @@
   <project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="9dab8bdd4991973faa6dfc5b3c607f4c09cc1cdb" upstream="wrynose"/>
   <project name="meta-ti" path="sources/meta-ti" remote="yocto" revision="f14ecb71de5c05d717fe0cecd47fea69f26d5306" upstream="wrynose"/>
   <project name="meta-yocto" path="sources/meta-yocto" remote="yocto" revision="ddeeba423ff0565b8f1192f16072b5993d5ea6a0" upstream="wrynose"/>
-  <project name="openembedded-core" path="sources/oe-core" remote="oe" revision="883075157987ca300af59185b903d6d1977234c3" upstream="wrynose"/>
+  <project name="openembedded-core" path="sources/oe-core" remote="oe" revision="bb14ef50f1af8c96282e0533c53535deadda7365" upstream="wrynose"/>
   <project name="meta-updater" path="sources/meta-updater" remote="uptane" revision="c73c905b2d358518aaec77893d5f4d1f2165470c" upstream="wrynose"/>
   <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="70a5d5a65d7237cfe978961fa4d8765c895cddc8" upstream="wrynose"/>
   <project name="meta-security" path="sources/meta-security" remote="yocto" revision="2703974d5e2d61b221dffa302c2e059a522adbf3" upstream="wrynose"/>

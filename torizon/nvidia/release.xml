@@ -11,7 +11,7 @@
   <default sync-j="4" sync-s="true"/>
 
   <project name="meta-openembedded" remote="oe" path="layers/meta-openembedded" revision="47d7dbdd10890bbd429bc0cccbe14435c37e5af1" upstream="wrynose"/>
-  <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="883075157987ca300af59185b903d6d1977234c3" upstream="wrynose"/>
+  <project name="openembedded-core" remote="oe" path="layers/openembedded-core" revision="bb14ef50f1af8c96282e0533c53535deadda7365" upstream="wrynose"/>
   <project name="bitbake" path="layers/openembedded-core/bitbake" remote="oe" revision="84a8d046593840df460c1312365031c817eb8918" upstream="2.18"/>
   <project name="meta-yocto" remote="yp" path="layers/meta-yocto" revision="ddeeba423ff0565b8f1192f16072b5993d5ea6a0" upstream="wrynose"/>
 
