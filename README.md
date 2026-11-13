@@ -24,6 +24,7 @@ Each vendor lives in its own folder under `torizon/`:
 | `torizon/syn/`     | Synaptics Astra                            |
 | `torizon/ti/`      | TI community BSP (`meta-ti`, non-Toradex boards) |
 | `torizon/x86/`     | Intel/AMD x86, `meta-intel`                |
+| `torizon/blaze/`   | Blaze (`imx6sx-blaze`), a customer i.MX 6SoloX board; `next.xml` only, see [README-blaze](https://github.com/torizon/meta-torizon-bsp/blob/wrynose-8.x.y/docs/README-blaze.md) |
 
 `base/` and `bsp/` are shared, vendor-agnostic includes (oe-core/bitbake
 base layers, and common BSP layers) pulled in by the vendor manifests via

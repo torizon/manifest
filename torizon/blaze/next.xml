@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Blaze (imx6sx-blaze): setup, build and the board's current status are in
+       https://github.com/torizon/meta-torizon-bsp/blob/wrynose-8.x.y/docs/README-blaze.md -->
+  <remote alias="repo" fetch="https://github.com/nxp-imx" name="nxp"/>
+  <remote alias="repo" fetch="https://github.com/nxp-imx-support" name="nxp-support"/>
+
+  <remote alias="repo" name="community"   fetch="https://github.com/Freescale"/>
+  <remote alias="repo" name="yp"          fetch="https://git.yoctoproject.org"/>
+  <remote alias="repo" name="oe"          fetch="https://github.com/openembedded"/>
+  <remote alias="repo" name="kraj"        fetch="https://github.com/kraj"/>
+  <remote alias="repo" name="ossystems"   fetch="https://github.com/OSSystems"/>
+  <remote alias="repo" name="qt"          fetch="https://github.com/YoeDistro"/>
+  <remote alias="repo" name="timesys"     fetch="https://github.com/TimesysGit"/>
+  <remote alias="repo" name="qt5"         fetch="https://github.com/meta-qt5"/>
+
+  <remote alias="repo" fetch="https://github.com/uptane" name="uptane"/>
+  <remote alias="repo" fetch="https://gitlab.com/toradex/customers/convotherm" name="convotherm"/>
+  <remote alias="repo" fetch="https://github.com/torizon" name="torizon"/>
+
+  <default sync-j="4" sync-s="true"/>
+
+  <project name="bitbake" remote="oe" path="sources/openembedded-core/bitbake" revision="2.18" upstream="2.18"/>
+  <project name="openembedded-core" remote="oe" path="sources/openembedded-core" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-yocto" remote="yp" path="sources/meta-yocto" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-arm" remote="yp" path="sources/meta-arm" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-security" remote="yp" path="sources/meta-security" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-virtualization" remote="yp" path="sources/meta-virtualization" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-clang" remote="kraj" path="sources/meta-clang" revision="wrynose" upstream="wrynose"/>
+
+  <project name="fsl-community-bsp-base" remote="community" path="sources/base" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-freescale" remote="community" path="sources/meta-freescale" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-freescale-3rdparty" remote="community" path="sources/meta-freescale-3rdparty" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-freescale-distro" remote="community" path="sources/meta-freescale-distro" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-freescale-ml" remote="community" path="sources/meta-freescale-ml" revision="wrynose" upstream="wrynose"/>
+
+  <project name="meta-qt6" remote="qt" path="sources/meta-qt6" revision="6.11" upstream="6.11"/>
+  <project name="meta-qt5" remote="qt5" path="sources/meta-qt5" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-browser" remote="ossystems" path="sources/meta-browser" revision="wrynose" upstream="wrynose"/>
+  <project name="meta-timesys" remote="timesys" path="sources/meta-timesys" revision="wrynose" upstream="wrynose"/>
+
+  <!-- meta-nxp-connectivity is taken from the
+      nxp manifest https://github.com/nxp-imx/imx-manifest/blob/imx-linux-wrynose/imx-6.18.37-2.1.0.xml-->
+  <project name="meta-nxp-connectivity" remote="nxp" path="sources/meta-nxp-connectivity" revision="refs/tags/rel_imx_6.18.37_2.1.0" upstream="imx_matter_2026_q1-post"/>
+  <project name="meta-nxp-demo-experience" remote="nxp-support" path="sources/meta-nxp-demo-experience" revision="wrynose-6.18.37-2.1.0" upstream="wrynose-6.18.37-2.1.0"/>
+  <project name="meta-imx" remote="nxp" path="sources/meta-imx" revision="wrynose-6.18.37-2.1.0" upstream="wrynose-6.18.37-2.1.0">
+    <linkfile dest="imx-setup-release.sh" src="tools/imx-setup-release.sh"/>
+    <linkfile dest="imx-frdm-setup.sh" src="tools/imx-setup-release.sh"/>
+  </project>
+
+  <project name="meta-updater" remote="uptane" path="sources/meta-updater" revision="wrynose" upstream="wrynose"/>
+  <!-- WARNING: this manifest syncs, but the board does not build yet.
+       meta-convotherm-torizon has no wrynose branch: scarthgap-7.x.y sets
+       LAYERSERIES_COMPAT to scarthgap and LAYERDEPENDS on
+       meta-toradex-torizon, which wrynose replaced with meta-torizon and
+       meta-torizon-bsp, so bitbake rejects the layer. -->
+  <project name="meta-convotherm-torizon" remote="convotherm" path="sources/meta-convotherm-torizon" revision="scarthgap-7.x.y" upstream="scarthgap-7.x.y"/>
+
+  <project name="meta-torizon" remote="torizon" path="sources/meta-torizon" revision="wrynose-8.x.y" upstream="wrynose-8.x.y"/>
+  <project name="meta-torizon-bsp" remote="torizon" path="sources/meta-torizon-bsp" revision="wrynose-8.x.y" upstream="wrynose-8.x.y">
+    <linkfile dest="setup-environment" src="scripts/setup-environment"/>
+  </project>
+</manifest>
