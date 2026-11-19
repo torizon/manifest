@@ -140,6 +140,16 @@ class BumpTestCase(unittest.TestCase):
                 )
 
 
+# The real-manifest tests need the integration.xml and release.xml that
+# release branches carry; master only has next.xml.
+HAS_PINNED_MANIFESTS = all(
+    os.path.exists(os.path.join(REPO_ROOT, "torizon", vendor, name))
+    for vendor in ("tdx", "nvidia")
+    for name in ("integration.xml", "release.xml")
+)
+
+
+@unittest.skipUnless(HAS_PINNED_MANIFESTS, "no integration.xml/release.xml on this branch")
 class RealManifestsTest(BumpTestCase):
     """Bumps of this repo's own manifests."""
 
