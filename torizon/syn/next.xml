@@ -12,11 +12,11 @@
 
   <default sync-j="4" sync-s="true" upstream="master"/>
 
-  <!-- Synaptics publishes no master-equivalent branch; pinned to the newest
-       released branch. Note: the "main" branch exists but holds only a
-       README.rst, it is not a usable fix.
+  <!-- Synaptics publishes no master-equivalent branch. This pins the same
+       scarthgap_6.12_v2.6.0 release as the scarthgap manifests. The "main"
+       branch exists but holds only a README.rst, so it is not usable.
        TODO: bump when a wrynose_* (or later) line appears. -->
-  <project name="meta-synaptics" path="layers/meta-synaptics" remote="synaptics" revision="scarthgap_6.12_v2.5.0"/>
+  <project name="meta-synaptics" path="layers/meta-synaptics" remote="synaptics" revision="scarthgap_6.12_v2.6.0"/>
   <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="master"/>
   <project name="meta-security" remote="yp" path="layers/meta-security" revision="master"/>
 
