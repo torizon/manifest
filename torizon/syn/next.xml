@@ -12,9 +12,11 @@
 
   <default sync-j="4" sync-s="true"/>
 
-  <!-- BROKEN: synaptics has no "master"-equivalent branch yet (newest published is scarthgap_6.12_v2.5.0, no wrynose line); build will fail until they cut one.
-       TODO: check for a newer branch (e.g. a wrynose_* line) and bump this to it once published. -->
-  <project name="meta-synaptics" path="layers/meta-synaptics" remote="synaptics" revision="scarthgap_6.12_v2.5.0" upstream="scarthgap_6.12_v2.5.0"/>
+  <!-- BROKEN: Synaptics publishes no wrynose branch yet. This pins the same
+       scarthgap_6.12_v2.6.0 release as the scarthgap manifests, which does
+       not build on wrynose.
+       TODO: bump to a wrynose_* line once Synaptics publishes one. -->
+  <project name="meta-synaptics" path="layers/meta-synaptics" remote="synaptics" revision="scarthgap_6.12_v2.6.0" upstream="scarthgap_6.12_v2.6.0"/>
 
   <project name="meta-browser" path="layers/meta-browser" remote="ossystems" revision="wrynose" upstream="wrynose"/>
   <project name="meta-clang" path="layers/meta-clang" remote="kraj" revision="wrynose" upstream="wrynose"/>
