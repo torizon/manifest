@@ -135,9 +135,10 @@ FILES=$(scripts/image_oe_bumpManifests.py --productName torizon --pipelineType n
 - Builds use `torizon/<vendor>/next.xml`. `nightly` bumps that vendor's
   `release.xml`, and `extint` bumps its `integration.xml`, where the
   Torizon layers stay on their branch.
-- `base/pinned.xml` and `bsp/pinned.xml` are bumped only for vendors whose
-  manifest `<include>`s them (today `tdx`), and are shared by its
-  `integration.xml` and `release.xml`.
+- `base/pinned.xml` and `bsp/pinned.xml` are bumped only when the file
+  being bumped `<include>`s them (today `tdx`), and are shared by its
+  `integration.xml` and `release.xml`. A vendor with no target file
+  bumps nothing.
 - Only `revision`/`upstream` of `<project>`s are edited; the rest of each
   file is kept as is.
 - A missing `integration.xml`/`release.xml` is skipped, not created.

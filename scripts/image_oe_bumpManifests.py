@@ -80,9 +80,9 @@ def get_target_branch_name(
 
 def _manifest_includes_path(manifest_file: str, path: str) -> bool:
     # Only bump a shared path (base/bsp) if this vendor's manifest actually
-    # <include>s it -- e.g. torizon/nvidia/next.xml lists its own layers
+    # <include>s it -- e.g. torizon/nvidia/release.xml lists its own layers
     # directly and never touches base/bsp, so it must not qualify just
-    # because it shares product_name "torizon" with torizon/tdx/next.xml.
+    # because it shares product_name "torizon" with torizon/tdx/release.xml.
     if not os.path.isfile(manifest_file):
         return False
     manifestDoc = minidom.parse(manifest_file)
@@ -135,8 +135,15 @@ def get_relevant_manifest_xml_files(
         "nightly": "release.xml",
         "extint": "integration.xml",
     }
+    target_rel = (
+        f"{original_manifest_file_dir}/"
+        f"{update_file_pipeline_type_map[pipeline_type]}"
+    )
+    # Pick the shared paths from the file being bumped, not from next.xml:
+    # its <include>s are what reads the pinned files. A missing target
+    # selects none, so pinned files nothing includes are left alone.
     affected_paths: List[str] = get_relevant_product_path(
-        product_name, original_manifest_file, manifest_root_path
+        product_name, target_rel, manifest_root_path
     )
 
     # Shared paths only bump their pinned xml files, and only when the
@@ -155,11 +162,7 @@ def get_relevant_manifest_xml_files(
 
     # Target release.xml or integration.xml based on pipeline type, in the
     # original manifest file's directory. It may not exist (see bump_xmls).
-    target_file = (
-        f"{manifest_root_path}/{original_manifest_file_dir}/"
-        f"{update_file_pipeline_type_map[pipeline_type]}"
-    )
-    file_list.append(target_file)
+    file_list.append(f"{manifest_root_path}/{target_rel}")
     return file_list
 
 
@@ -195,10 +198,10 @@ def bump_xmls(projRevDict, fileList, pipelineType, dryrun=False) -> List[str]:
     for f in fileList:
         # Don't create a missing integration.xml/release.xml from next.xml.
         # Some vendors don't ship them yet on purpose (e.g. syn/mtk BSPs
-        # don't build on this release, qcom has no release yet), and
-        # manifest-ci.yml excludes them, so a created file would land
-        # unvalidated. Adding a vendor's first one is a manual change that
-        # also enables it in CI.
+        # don't build on this release, qcom has no release yet), so a
+        # created file would land without anyone having reviewed it as a
+        # first release manifest. Adding a vendor's first one is a manual
+        # change that also enables it in CI.
         if not os.path.isfile(f):
             print(f"Skipping {f}: file does not exist.", file=sys.stderr)
             continue

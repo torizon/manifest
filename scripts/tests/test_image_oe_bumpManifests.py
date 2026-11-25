@@ -193,6 +193,15 @@ class RealManifestsTest(BumpTestCase):
         printed, changed = self._bump("nvidia", "extint")
         self.assertEqual((printed, changed), ([], []))
 
+    def test_missing_target_bumps_no_shared_files(self):
+        # tdx/next.xml includes base/ and bsp/, but only the bumped file's
+        # <include>s read the pinned files. With no target, nothing moves.
+        target = os.path.join(self.root, "torizon/tdx/release.xml")
+        if os.path.exists(target):
+            os.remove(target)
+        printed, changed = self._bump("tdx", "nightly")
+        self.assertEqual((printed, changed), ([], []))
+
     def test_failed_matrix_build_bumps_nothing(self):
         for status in ("FAILURE", "ABORTED"):
             with self.subTest(status=status):
