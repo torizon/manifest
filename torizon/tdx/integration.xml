@@ -9,7 +9,7 @@
   <remote alias="repo" fetch="https://github.com/iris-GmbH" name="iris"/>
 
   <project name="meta-security" path="layers/meta-security" remote="yocto" revision="2703974d5e2d61b221dffa302c2e059a522adbf3" upstream="wrynose"/>
-  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="c73c905b2d358518aaec77893d5f4d1f2165470c" upstream="wrynose"/>
+  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="92f4788c30fdcab2d376eb9ae6b191bda7d06d0a" upstream="wrynose"/>
   <project name="meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="70a5d5a65d7237cfe978961fa4d8765c895cddc8" upstream="wrynose"/>
   <project name="meta-cyclonedx" path="layers/meta-cyclonedx" remote="iris" revision="0d1b192b1932635f9442ade3e10cde6b6597daa6" upstream="wrynose"/>
   <project name="meta-toradex-security" path="layers/meta-toradex-security" remote="toradex" revision="3057dfdeb11094fb751cfc8e846792d8eff2db99" upstream="main"/>

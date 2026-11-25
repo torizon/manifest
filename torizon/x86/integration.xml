@@ -11,7 +11,7 @@
   <project name="bitbake" path="layers/bitbake" remote="oe" revision="f0df79b6b56f6a69067adf974978d9405077f246" upstream="2.18"/>
   <project name="meta-yocto" path="layers/meta-yocto" remote="yocto" revision="ddeeba423ff0565b8f1192f16072b5993d5ea6a0" upstream="wrynose"/>
   <project name="meta-intel" path="layers/meta-intel" remote="yocto" revision="79a9681ce83f6bf36aede3aeb8c1707d29bca329" upstream="wrynose"/>
-  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="c73c905b2d358518aaec77893d5f4d1f2165470c" upstream="wrynose"/>
+  <project name="meta-updater" path="layers/meta-updater" remote="uptane" revision="92f4788c30fdcab2d376eb9ae6b191bda7d06d0a" upstream="wrynose"/>
   <project name="meta-virtualization" path="layers/meta-virtualization" remote="yocto" revision="70a5d5a65d7237cfe978961fa4d8765c895cddc8" upstream="wrynose"/>
   <project name="meta-security" path="layers/meta-security" remote="yocto" revision="2703974d5e2d61b221dffa302c2e059a522adbf3" upstream="wrynose"/>
   <project name="meta-openembedded" path="layers/meta-openembedded" remote="oe" revision="47d7dbdd10890bbd429bc0cccbe14435c37e5af1" upstream="wrynose"/>
