@@ -6,7 +6,7 @@
   <remote alias="repo" fetch="https://git.yoctoproject.org" name="yocto"/>
 
   <project name="meta-arm" path="layers/meta-arm" remote="yocto" revision="9dab8bdd4991973faa6dfc5b3c607f4c09cc1cdb" upstream="wrynose"/>
-  <project name="meta-freescale.git" path="layers/meta-freescale" remote="githf" revision="c35d3dc9b0a1b42a80e41b78307d4612abdfdc71" upstream="wrynose"/>
+  <project name="meta-freescale.git" path="layers/meta-freescale" remote="githf" revision="d5003dedf10ecf082bbfe8f8c74f1f31e9313639" upstream="wrynose"/>
   <project name="meta-freescale-ml.git" path="layers/meta-freescale-ml" remote="githf" revision="1330790bc6cdd3808260a16383d928e05a0e0eeb" upstream="wrynose"/>
   <project name="meta-imx" path="layers/meta-imx" remote="nxp" revision="52516b92a70669eb58b805810f2a27a07c874771" upstream="wrynose-6.18.20-2.0.0"/>
   <project name="meta-ti" path="layers/meta-ti" remote="yocto" revision="f14ecb71de5c05d717fe0cecd47fea69f26d5306" upstream="wrynose"/>
