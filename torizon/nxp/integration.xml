@@ -46,7 +46,7 @@
   <project name="meta-nxp-connectivity" remote="nxp" path="sources/meta-nxp-connectivity" revision="12e139aa362660e2a7545b2924076038958e5144" upstream="imx_matter_2026_q1-post"/>
   <project name="meta-nxp-demo-experience" remote="nxp-support" path="sources/meta-nxp-demo-experience" revision="dd4e742a339c51f90dec8ea59c62add1f7f157fa" upstream="wrynose-6.18.37-2.1.0"/>
 
-  <project name="meta-updater" path="sources/meta-updater" remote="uptane" revision="c73c905b2d358518aaec77893d5f4d1f2165470c" upstream="wrynose"/>
+  <project name="meta-updater" path="sources/meta-updater" remote="uptane" revision="92f4788c30fdcab2d376eb9ae6b191bda7d06d0a" upstream="wrynose"/>
   <project name="meta-torizon" path="sources/meta-torizon" remote="torizon" revision="wrynose-8.x.y"/>
   <project name="meta-torizon-bsp" path="sources/meta-torizon-bsp" remote="torizon" revision="wrynose-8.x.y">
     <linkfile dest="setup-environment" src="scripts/setup-environment"/>
